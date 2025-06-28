@@ -10,4 +10,8 @@ export default defineConfig({
   build: {
     target: "esnext",
   },
+  // https://github.com/andi23rosca/solid-markdown/issues/33
+  optimizeDeps: {
+    include: ["solid-markdown > micromark", "solid-markdown > unified"],
+  },
 }) satisfies UserConfig as UserConfig;
