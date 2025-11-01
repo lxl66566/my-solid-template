@@ -13,7 +13,7 @@
   "devDependencies": {
     "@unocss/preset-wind4": "^66.1.4",
     "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.12",
+    "prettier-plugin-tailwindcss": "^0.7.1",
     "typescript": "^5.9.3",
     "unocss": "^66.3.2",
     "vite": "^6.0.0",
