@@ -1,12 +1,10 @@
-import { defineConfig, type UserConfig } from "vite";
-import solidPlugin from "vite-plugin-solid";
-import UnoCSS from "unocss/vite";
+import type { UserConfig } from "vite";
 
-export default defineConfig({
-  plugins: [UnoCSS(), solidPlugin()],
-  server: {
-    port: 3000,
-  },
+import UnoCSS from "unocss/vite";
+import solidPlugin from "vite-plugin-solid";
+import { defineConfig } from "vitest/config";
+
+const config: UserConfig = defineConfig({
   build: {
     target: "esnext",
   },
@@ -14,4 +12,13 @@ export default defineConfig({
   optimizeDeps: {
     include: ["solid-markdown > micromark", "solid-markdown > unified"],
   },
-}) satisfies UserConfig as UserConfig;
+  plugins: [UnoCSS(), solidPlugin()],
+  server: {
+    port: 3000,
+  },
+  test: {
+    environment: "node",
+  },
+});
+
+export default config;

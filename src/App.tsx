@@ -9,20 +9,20 @@ function App(): JSX.Element {
       <div class="mb-8 text-5xl font-bold">{count()}</div>
       <div class="flex gap-4">
         <button
-          onClick={() => setCount(count() - 1)}
           class="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
+          onClick={() => setCount(count() - 1)}
         >
           减少
         </button>
         <button
-          onClick={() => setCount(0)}
           class="rounded bg-gray-500 px-4 py-2 text-white hover:bg-gray-600"
+          onClick={() => setCount(0)}
         >
           重置
         </button>
         <button
-          onClick={() => setCount(count() + 1)}
           class="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
+          onClick={() => setCount(count() + 1)}
         >
           增加
         </button>

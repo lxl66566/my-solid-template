@@ -7,20 +7,53 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "fmt": "prettier --write ."
+    "fmt": "prettier --write .",
+    "lint": "oxlint . && eslint .",
+    "check": "tsc --noEmit --strict --skipLibCheck",
+    "knip": "knip",
+    "verify": "pnpm fmt:check && pnpm lint && pnpm check && pnpm knip && pnpm test",
+    "fmt:check": "prettier --check .",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "prepare": "simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs,cjs}": [
+      "oxlint --fix",
+      "eslint --fix"
+    ],
+    "*.{ts,tsx,js,mjs,cjs,json,jsonc,css,html,md,yml,yaml}": "prettier --write"
   },
   "license": "MIT",
   "devDependencies": {
-    "@unocss/preset-wind4": "^66.7.4",
-    "prettier": "^3.9.4",
-    "prettier-plugin-tailwindcss": "^0.8.0",
+    "@eslint/js": "^10.0.1",
+    "@unocss/preset-wind4": "^66.7.5",
+    "@vitest/eslint-plugin": "^1.6.24",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import-x": "^4.17.1",
+    "eslint-plugin-perfectionist": "^5.10.0",
+    "eslint-plugin-regexp": "^3.1.1",
+    "eslint-plugin-solid": "^0.14.5",
+    "eslint-plugin-unicorn": "^72.0.0",
+    "knip": "^6.29.0",
+    "lint-staged": "^17.2.0",
+    "oxlint": "^1.75.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "simple-git-hooks": "^2.13.1",
     "typescript": "^6.0.3",
-    "unocss": "^66.7.4",
+    "typescript-eslint": "^8.65.0",
+    "unocss": "^66.7.5",
     "vite": "^7.3.6",
-    "vite-plugin-solid": "^2.11.12"
+    "vite-plugin-solid": "^2.11.13",
+    "vitest": "^4.1.10"
   },
   "dependencies": {
-    "solid-js": "^1.9.13"
+    "solid-js": "^1.9.14"
   },
   "packageManager": "pnpm@10.6.3+sha512.bb45e34d50a9a76e858a95837301bfb6bd6d35aea2c5d52094fa497a467c43f5c440103ce2511e9e0a2f89c3d6071baac3358fc68ac6fb75e2ceb3d2736065e6"
 }

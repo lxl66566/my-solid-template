@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "preserve",
@@ -25,6 +25,8 @@
     "strictBindCallApply": true, // 严格检查 bind/call/apply 方法的参数类型
     "strictFunctionTypes": true, // 严格检查函数类型（禁用函数参数的双变行为）
     "strictNullChecks": true, // 严格的 null/undefined 检查（避免空值错误）
+    "noUncheckedIndexedAccess": true, // 索引访问返回 T | undefined（强制处理数组越界/缺失键）
+    "noUncheckedSideEffectImports": true, // 副作用导入也会被解析检查（import './x.css' 路径必须存在）
     "useUnknownInCatchVariables": true, // 将 catch 子句变量类型设为 unknown（替代 any 更安全）
     "verbatimModuleSyntax": true // 使用严格的模块语法（推荐所有 TS 项目开启）
   }
