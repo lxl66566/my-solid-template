@@ -1,23 +1,23 @@
-import type { UserConfig } from "vite";
+import type { UserConfig } from 'vite';
 
-import UnoCSS from "unocss/vite";
-import solidPlugin from "vite-plugin-solid";
-import { defineConfig } from "vitest/config";
+import UnoCSS from 'unocss/vite';
+import solidPlugin from 'vite-plugin-solid';
+import { defineConfig } from 'vitest/config';
 
 const config: UserConfig = defineConfig({
   build: {
-    target: "esnext",
+    target: 'esnext',
   },
   // https://github.com/andi23rosca/solid-markdown/issues/33
   optimizeDeps: {
-    include: ["solid-markdown > micromark", "solid-markdown > unified"],
+    include: ['solid-markdown > micromark', 'solid-markdown > unified'],
   },
   plugins: [UnoCSS(), solidPlugin()],
   server: {
     port: 3000,
   },
   test: {
-    environment: "node",
+    environment: 'node',
   },
 });
 

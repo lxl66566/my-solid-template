@@ -1,4 +1,4 @@
-import { createSignal, type JSX } from "solid-js";
+import { createSignal, type JSX } from 'solid-js';
 
 function App(): JSX.Element {
   const [count, setCount] = createSignal(0);
