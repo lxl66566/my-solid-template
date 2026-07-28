@@ -31,7 +31,7 @@
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@ianvs/prettier-plugin-sort-imports": "4.4.0",
+    "@ianvs/prettier-plugin-sort-imports": "4.7.1",
     "@unocss/preset-wind4": "^66.7.5",
     "@vitest/eslint-plugin": "^1.6.24",
     "eslint": "^10.8.0",
