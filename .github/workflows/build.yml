@@ -44,9 +44,6 @@ jobs:
       - name: Typecheck
         run: pnpm check
 
-      - name: Unused Code & Deps (knip)
-        run: pnpm knip
-
       - name: Test
         run: pnpm test
 

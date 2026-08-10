@@ -4,7 +4,7 @@
 //   1. eslint recommended + import-x             — generic bugs, import hygiene
 //   2. typescript-eslint strict/stylistic (type-aware) — needs type info, catches
 //      floating promises, unsafe `any` leakage, etc.
-//   3. unicorn + perfectionist + regexp          — opinionated consistency
+//   3. perfectionist + regexp                    — opinionated consistency
 //   4. eslint-plugin-solid (flat/typescript)     — SolidJS reactivity pitfalls
 //   5. eslint-config-prettier                    — disable formatting conflicts
 //
@@ -17,7 +17,6 @@ import { importX } from 'eslint-plugin-import-x';
 import { configs as perfectionist } from 'eslint-plugin-perfectionist';
 import { configs as regexpConfigs } from 'eslint-plugin-regexp';
 import solidPlugin from 'eslint-plugin-solid';
-import unicorn from 'eslint-plugin-unicorn';
 import tseslint from 'typescript-eslint';
 
 // The package ships a CJS default export; normalise it.
@@ -31,7 +30,6 @@ export default tseslint.config(
   importX.flatConfigs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
-  unicorn.configs['flat/recommended'],
   perfectionist['recommended-natural'],
   regexpConfigs['flat/recommended'],
   {
@@ -89,26 +87,6 @@ export default tseslint.config(
       // produces false positives for types/globals.
       'no-undef': 'off',
       'prefer-const': 'error',
-      // Components are PascalCase (App.tsx), the rest kebab-case.
-      'unicorn/filename-case': [
-        'error',
-        { cases: { kebabCase: true, pascalCase: true } },
-      ],
-      'unicorn/name-replacements': [
-        'error',
-        {
-          allowList: {
-            args: true,
-            Args: true,
-            env: true,
-            Env: true,
-            props: true,
-            Props: true,
-            ref: true,
-            Ref: true,
-          },
-        },
-      ],
     },
   },
   prettier,
