@@ -1,6 +1,5 @@
-import type { UserConfig } from 'vite';
-
 import UnoCSS from 'unocss/vite';
+import type { UserConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 import { defineConfig } from 'vitest/config';
 

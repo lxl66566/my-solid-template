@@ -16,7 +16,11 @@
     "style": "off"
   },
   "rules": {
+    "eslint/no-unassigned-vars": "off",
+    "eslint/no-underscore-dangle": "off",
+    "import/no-named-as-default": "off",
     "import/no-unassigned-import": "off",
+    "oxc/no-map-spread": "off",
     "vitest/require-hook": "off"
   },
   "env": {

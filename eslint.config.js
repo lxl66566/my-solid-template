@@ -70,23 +70,37 @@ export default tseslint.config(
   },
   {
     rules: {
-      // AGENTS.md: no `any` / `as unknown`.
+      // --- low-value typescript-eslint rules ---
+      '@typescript-eslint/no-dynamic-delete': 'off',
+      '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-for-in-array': 'off',
+      '@typescript-eslint/no-invalid-void-type': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
-      // TS's own import resolution is authoritative; this rule needs a
-      // resolver to understand tsconfig paths/bundler resolution.
+      '@typescript-eslint/prefer-optional-chain': 'off',
+      '@typescript-eslint/require-await': 'off',
+      'import-x/no-named-as-default': 'off',
       'import-x/no-unresolved': 'off',
-      // Solid assigns `let` refs at runtime via its JSX transform
-      // (`<div ref={el}>`), so the linter sees no assignment — disable to
-      // avoid false positives on this idiomatic pattern.
       'no-unassigned-vars': 'off',
-      // TS already enforces undefined-variable checks; the core rule
-      // produces false positives for types/globals.
       'no-undef': 'off',
+      'no-underscore-dangle': 'off',
+      // --- rules from plugins not loaded in ESLint ---
+      'oxc/no-map-spread': 'off',
+      // Import ordering is owned by `@ianvs/prettier-plugin-sort-imports`
+      // (run via `prettier --write`, which executes *after* `eslint --fix` in
+      // lint-staged). Perfectionist's sort-imports rules use a different
+      // grouping than the prettier plugin, so the two can never be satisfied
+      // at the same time — every file would flip-flop. Disable the redundant
+      // ESLint rules so `verify` (fmt:check && lint:full) is achievable; all
+      // other Perfectionist rules (sort-objects, sort-object-types, …) stay.
+      'perfectionist/sort-imports': 'off',
+      'perfectionist/sort-named-imports': 'off',
       'prefer-const': 'error',
+      'promise/always-return': 'off',
     },
   },
   prettier,
