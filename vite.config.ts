@@ -12,6 +12,7 @@ const config: UserConfig = defineConfig({
     include: ['solid-markdown > micromark', 'solid-markdown > unified'],
   },
   plugins: [UnoCSS(), solidPlugin()],
+  resolve: { tsconfigPaths: true },
   server: {
     port: 3000,
   },
